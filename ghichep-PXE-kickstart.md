@@ -54,8 +54,10 @@ LABEL Ubuntu 14.04
 ```
 Các chú ý sửa file cho DNS
 - Sửa file DHCP
+
 vi /etc/dhcp/dhcpd.conf
 
 - Sua file de khai bao menu cua DIA BOOT
+
 vi /var/lib/tftpboot/pxelinux.cfg/default
 
