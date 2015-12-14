@@ -35,7 +35,7 @@ filename "pxelinux.0";
 LABEL Ubuntu 14.04 Desktop
 	MENU LABEL Trusty 14.04 Desktop
 	KERNEL ubuntu-installer/amd64/linux
-	append vga=normal ks=http://192.168.1.254/ks-1404-64-desktop.cfg initrd=ubuntu-installer/amd64/initrd.gz live-installer/net-image=http://192.168.1.254/ubuntu-14.04.amd64-server/install/filesystem.squashfs hostname=desktop --
+	append vga=normal ks=http://192.168.1.254/ks-1404-64-desktop.cfg initrd=ubuntu-installer/amd64/initrd.gz  hostname=desktop --
   
   
   
@@ -48,7 +48,7 @@ timeout 0
 LABEL Ubuntu 14.04 
         MENU LABEL Trusty 14.04
         kernel ubuntu-installer/amd64/linux
-        append ks=http://192.168.100.6/ksubuntu.cfg file=http://192.168.100.6/ubuntu/preseed/ubuntu-server.seed  vga=normal initrd=ubuntu-installer/amd64/initrd.gz --
+        append ks=http://192.168.100.6/ksubuntu.cfg vga=normal initrd=ubuntu-installer/amd64/initrd.gz --
 ##########
 
 ```
