@@ -30,7 +30,7 @@ filename "pxelinux.0";
 
 ```
 
-
+```sh
 
 LABEL Ubuntu 14.04 Desktop
 	MENU LABEL Trusty 14.04 Desktop
@@ -51,6 +51,7 @@ LABEL Ubuntu 14.04
         append ks=http://192.168.100.6/ksubuntu.cfg file=http://192.168.100.6/ubuntu/preseed/ubuntu-server.seed  vga=normal initrd=ubuntu-installer/amd64/initrd.gz --
 ##########
 
+```
 Các chú ý sửa file cho DNS
 - Sửa file DHCP
 vi /etc/dhcp/dhcpd.conf
