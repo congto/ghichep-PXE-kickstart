@@ -174,14 +174,7 @@ vim
 
 
 
-
-
-
 #### Các lệnh lặt vặt
-
-# Mount file iso vào ổ loop
-sudo mount -o loop /root/ubuntu-14.04.3-server-amd64.iso /mnt/
-
 
 
 
