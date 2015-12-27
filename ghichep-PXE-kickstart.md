@@ -1,3 +1,64 @@
+#### Các bước cài đặt
+
+##### Cài đặt DHCP
+
+- Cài đặt dhcp
+```sh
+sudo apt-get  -y install isc-dhcp-server
+```
+
+- Sửa file `/etc/default/isc-dhcp-server` để cấp dhcp qua card eth0
+```sh
+INTERFACES="eth0"
+```
+
+- Sửa file  `etc/dhcp/dhcpd.conf` để cấu hình DHCP cho máy chủ
+
+
+```sh
+
+- Tìm dòng dưới và sửa thành
+
+option domain-name "labcloud.vnptdata";
+option domain-name-servers 8.8.8.8, 8.8.4.4;
+
+- Bỏ comment dòng 
+
+authoritative;
+
+
+- Thêm vào cuối dòng etc/dhcp/dhcpd.conf
+
+subnet 172.16.69.0 netmask 255.255.255.0 {
+range 172.16.69.11 172.16.69.19;
+option domain-name-servers 8.8.8.8;
+option domain-name "labcloud.vnptdata";
+option routers 172.16.69.1;
+option broadcast-address 172.16.69.255;
+default-lease-time 600;
+max-lease-time 7200;
+}
+
+```
+
+- Bắt đầu cấu hình cho pxe
+
+- Cài đặt các gói 
+
+```sh
+sudo apt-get install apache2 tftpd-hpa inetutils-inetd
+```
+
+- Sửa file `/etc/default/tftpd-hpa`
+- Chèn vào cuối dòng trên các dòng dưới
+```sh
+RUN_DAEMON="yes"
+OPTIONS="-l -s /var/lib/tftpboot"
+```
+
+
+
+
 
 #### Các lệnh lặt vặt
 
@@ -60,4 +121,7 @@ vi /etc/dhcp/dhcpd.conf
 - Sua file de khai bao menu cua DIA BOOT
 
 vi /var/lib/tftpboot/pxelinux.cfg/default
+
+#### Link tham khảo
+http://www.unixmen.com/install-and-configure-pxe-server-on-ubuntu-15-04/
 
